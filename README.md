@@ -9,7 +9,7 @@ It allows to keep global data for templates and parse strings, files and directo
 
 	```Shell
 	go get -u github.com/gowww/view
-	````
+	```
 
 2. Import it in your code:
 
