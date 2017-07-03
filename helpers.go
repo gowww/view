@@ -20,11 +20,12 @@ func HelperGoogleFonts(fonts ...string) template.HTML {
 }
 
 // HelperNL2BR converts new line in br HTML tag.
+// Result will not be unescaped, use HelperSafeHTML for that.
 func HelperNL2BR(s string) string {
 	return strings.Replace(s, "\n", "<br>", -1)
 }
 
-// HelperSafeHTML prevent s to be escaped.
+// HelperSafeHTML prevents s to be escaped. Be carefull.
 func HelperSafeHTML(s string) template.HTML {
 	return template.HTML(s)
 }
