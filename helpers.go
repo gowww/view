@@ -25,7 +25,7 @@ func HelperNL2BR(s string) string {
 	return strings.Replace(s, "\n", "<br>", -1)
 }
 
-// HelperSafeHTML prevents s to be escaped. Be carefull.
+// HelperSafeHTML prevents s to be escaped. Be careful.
 func HelperSafeHTML(s string) template.HTML {
 	return template.HTML(s)
 }
