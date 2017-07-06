@@ -27,16 +27,14 @@ Use [New](https://godoc.org/github.com/gowww/view#New) to make a new view unit:
 v := view.New()
 ```
 
-Use [Data](https://godoc.org/github.com/gowww/view#Data) to add global data for view templates.
-It can be called multiple times:
+Use [Data](https://godoc.org/github.com/gowww/view#Data) to add global data for view templates:
 
 ```Go
 v.Data(Data{"foo": "Foo"})
 v.Data(Data{"bar": "Bar"})
 ```
 
-Use [Funcs](https://godoc.org/github.com/gowww/view#Funcs) to add functions for view templates.
-It can be called multiple times:
+Use [Funcs](https://godoc.org/github.com/gowww/view#Funcs) to add functions for view templates:
 
 ```Go
 v.Funcs(view.AllHelpers)
@@ -88,3 +86,15 @@ Use [ExecuteTemplate](https://godoc.org/github.com/gowww/view#ExecuteTemplate) t
 w := new(bytes.Buffer)
 v.ExecuteTemplate(w, "home", Data{"title": "Example"})
 ```
+
+#### Built-in functions
+
+In addition to the functions provided by the standard [template](https://golang.org/pkg/text/template/#hdr-Functions) package, these function are also available out of the box:
+
+| Function        | Description                                                                                      | Usage                                              |
+------------------|--------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| `googlefonts`   | Sets an HTML link to [Google Fonts](https://fonts.google.com)'s stylesheet of the given font(s). | `{{googlefonts "Open+Sans:400,700\|Spectral"}}`    |
+| `nl2br`         | Converts `\n` to HTML `<br>`.                                                                    | `{{nl2br "line one\nline two"}}`                   |
+| `safehtml`      | Prevents string to be escaped. Be careful.                                                       | `{{safehtml "<strong>word</strong>"}}`             |
+| `scripts`       | Sets HTML script tags for the given script sources.                                              | `{{scripts "/static/main.js" "/static/user.js"}}`  |
+| `styles`        | Sets HTML link tags for the given stylesheets.                                                   | `{{styles "/static/main.css" "/static/user.css"}}` |
