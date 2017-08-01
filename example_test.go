@@ -3,6 +3,7 @@ package view_test
 import (
 	"bytes"
 	"fmt"
+	"net/url"
 	"strings"
 
 	"github.com/gowww/view"
@@ -14,7 +15,8 @@ func Example() {
 	v := view.New().Data(view.Data{
 		"app": "App",
 	}).Funcs(view.Funcs{
-		"trim": strings.Trim,
+		"pathescape": url.PathEscape,
+		"trim":       strings.Trim,
 	}).Parse(tmpl)
 
 	// Get a view with local data.

@@ -30,15 +30,17 @@ v := view.New()
 Use [Data](https://godoc.org/github.com/gowww/view#Data) to add global data for view templates:
 
 ```Go
-v.Data(Data{"foo": "Foo"})
-v.Data(Data{"bar": "Bar"})
+v.Data(view.Data{"app": "App"})
+v.Data(view.Data{"foobar": "Foobar"})
 ```
 
 Use [Funcs](https://godoc.org/github.com/gowww/view#Funcs) to add functions for view templates:
 
 ```Go
-v.Funcs(view.AllHelpers)
-v.Funcs(Funcs{"pathescape": url.PathEscape,})
+v.Funcs(view.Funcs{
+	"pathescape": url.PathEscape,
+	"trim":       strings.Trim,
+})
 ```
 
 Use [Parse](https://godoc.org/github.com/gowww/view#Parse) to parse text directly:
@@ -65,10 +67,12 @@ v.ParseDir("views")
 All this can be chained and called multiple times:
 
 ```Go
-tmpl := "<h1>{{.app}} — {{.title}}</h1><p>{{.foobar}}</p>"
-data1 := Data{"app": "App"}
-data2 := Data{"foobar": "Foobar"}
-v := New().Data(data1).Data(data2).Funcs(view.AllHelpers).Parse(tmpl)
+v := view.New().
+	Data(data1).
+	Data(data2).
+	Funcs(funcs1).
+	Funcs(funcs2).
+	Parse(tmpl)
 ```
 
 ### Execution
