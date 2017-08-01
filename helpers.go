@@ -10,13 +10,13 @@ var allHelpers = Funcs{
 	"googlefonts": HelperGoogleFonts,
 	"nl2br":       HelperNL2BR,
 	"safehtml":    HelperSafeHTML,
-	"scripts":     HelperScripts,
-	"styles":      HelperStyles,
+	"script":      HelperScript,
+	"style":       HelperStyle,
 }
 
 // HelperGoogleFonts returns the HTML link to Google Fonts's stylesheet of the given font(s).
 func HelperGoogleFonts(fonts ...string) template.HTML {
-	return HelperStyles("https://fonts.googleapis.com/css?family=" + strings.Join(fonts, "|"))
+	return HelperStyle("https://fonts.googleapis.com/css?family=" + strings.Join(fonts, "|"))
 }
 
 // HelperNL2BR converts "\n" to HTML "<br>".
@@ -30,18 +30,12 @@ func HelperSafeHTML(s string) template.HTML {
 	return template.HTML(s)
 }
 
-// HelperScripts returns HTML script tags for the given script sources.
-func HelperScripts(srcs ...string) (h template.HTML) {
-	for _, src := range srcs {
-		h += template.HTML(`<script src="` + src + `"></script>`)
-	}
-	return
+// HelperScript returns HTML script tags for the given script sources.
+func HelperScript(src string) template.HTML {
+	return template.HTML(`<script src="` + src + `"></script>`)
 }
 
-// HelperStyles returns HTML link tags for the given stylesheets.
-func HelperStyles(hrefs ...string) (h template.HTML) {
-	for _, href := range hrefs {
-		h += template.HTML(`<link rel="stylesheet" href="` + href + `">`)
-	}
-	return
+// HelperStyle returns HTML link tags for the given stylesheets.
+func HelperStyle(href string) template.HTML {
+	return template.HTML(`<link rel="stylesheet" href="` + href + `">`)
 }

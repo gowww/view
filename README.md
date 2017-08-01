@@ -100,5 +100,5 @@ In addition to the functions provided by the standard [template](https://golang.
 | `googlefonts`   | Sets an HTML link to [Google Fonts](https://fonts.google.com)'s stylesheet of the given font(s). | `{{googlefonts "Open+Sans:400,700\|Spectral"}}`    |
 | `nl2br`         | Converts `\n` to HTML `<br>`.                                                                    | `{{nl2br "line one\nline two"}}`                   |
 | `safehtml`      | Prevents string to be escaped. Be careful.                                                       | `{{safehtml "<strong>word</strong>"}}`             |
-| `scripts`       | Sets HTML script tags for the given script sources.                                              | `{{scripts "/static/main.js" "/static/user.js"}}`  |
-| `styles`        | Sets HTML link tags for the given stylesheets.                                                   | `{{styles "/static/main.css" "/static/user.css"}}` |
+| `script`        | Sets HTML script tag for the given script source.                                                | `{{script "/static/main.js"}}`                     |
+| `style`         | Sets HTML link tag for the given stylesheet.                                                     | `{{style "/static/main.css"}}`                     |
