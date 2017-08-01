@@ -89,7 +89,7 @@ v.ExecuteTemplate(w, "home", Data{"title": "Example"})
 
 #### Built-in functions
 
-In addition to the functions provided by the standard [template](https://golang.org/pkg/text/template/#hdr-Functions) package, these function are also available out of the box:
+In addition to the functions provided by the standard [template](https://golang.org/pkg/text/template/#hdr-Functions) package, these functions are also available out of the box:
 
 | Function        | Description                                                                                      | Usage                                              |
 ------------------|--------------------------------------------------------------------------------------------------|----------------------------------------------------|

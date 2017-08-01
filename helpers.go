@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-// AllHelpers can be passed to view.Funcs to load the view with all helper functions.
-var AllHelpers = Funcs{
+// allHelpers are used in all new views.
+var allHelpers = Funcs{
 	"googlefonts": HelperGoogleFonts,
 	"nl2br":       HelperNL2BR,
 	"safehtml":    HelperSafeHTML,

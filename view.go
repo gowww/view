@@ -26,7 +26,9 @@ type Funcs map[string]interface{}
 
 // New init a view unit.
 func New() *View {
-	return &View{tmpl: template.New("main")}
+	v := &View{tmpl: template.New("main")}
+	v.Funcs(allHelpers)
+	return v
 }
 
 // Data adds global data for view templates.
