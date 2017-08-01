@@ -31,17 +31,17 @@ func HelperSafeHTML(s string) template.HTML {
 }
 
 // HelperScripts returns HTML script tags for the given script sources.
-func HelperScripts(src ...string) (h template.HTML) {
-	for _, script := range src {
-		h += template.HTML(`<script src="` + script + `"></script>`)
+func HelperScripts(srcs ...string) (h template.HTML) {
+	for _, src := range srcs {
+		h += template.HTML(`<script src="` + src + `"></script>`)
 	}
 	return
 }
 
 // HelperStyles returns HTML link tags for the given stylesheets.
-func HelperStyles(href ...string) (h template.HTML) {
-	for _, style := range href {
-		h += template.HTML(`<link rel="stylesheet" href="` + style + `">`)
+func HelperStyles(hrefs ...string) (h template.HTML) {
+	for _, href := range hrefs {
+		h += template.HTML(`<link rel="stylesheet" href="` + href + `">`)
 	}
 	return
 }
