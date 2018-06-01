@@ -21,8 +21,8 @@ func HelperGoogleFonts(fonts ...string) template.HTML {
 
 // HelperNL2BR converts "\n" to HTML "<br>".
 // Result will not be unescaped, use HelperSafeHTML for that.
-func HelperNL2BR(s string) string {
-	return strings.Replace(s, "\n", "<br>", -1)
+func HelperNL2BR(s string) template.HTML {
+	return template.HTML(strings.Replace(template.HTMLEscapeString(s), "\n", "<br>", -1))
 }
 
 // HelperSafeHTML prevents s to be escaped. Be careful.
